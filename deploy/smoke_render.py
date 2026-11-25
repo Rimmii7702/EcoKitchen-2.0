@@ -9,7 +9,7 @@ import subprocess
 import time
 from pathlib import Path
 from secrets import token_hex
-from urllib.error import HTTPError, URLError
+from urllib.error import HTTPError
 from urllib.request import ProxyHandler, Request, build_opener
 
 
@@ -45,8 +45,9 @@ def wait_ready(site, started):
         try:
             if call(site, "/api/health") == {"status": "ok"}:
                 return time.monotonic() - started
-        except (URLError, TimeoutError, AssertionError):
-            time.sleep(0.3)
+        except (OSError, AssertionError):
+            pass
+        time.sleep(0.3)
     raise RuntimeError("The constrained demo failed to become healthy within 180 seconds.")
 
 
