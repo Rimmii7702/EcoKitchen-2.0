@@ -120,3 +120,62 @@ class RenderDemoTests(unittest.TestCase):
                 application()
         with self.assertRaises(ValueError):
             create_app(self.directory, "https://other.test", token_hex(32))
+
+
+class RenderReadinessTests(unittest.TestCase):
+    site = "http://127.0.0.1:12000"
+
+    def test_retries_only_transient_startup_failures(self):
+        from deploy.smoke_render import wait_ready
+        from time import monotonic
+
+        with (
+            patch("deploy.smoke_render.probe_health", side_effect=[
+                ConnectionRefusedError(), ConnectionResetError(), "HTTP 502", None,
+            ]) as probe,
+            patch("deploy.smoke_render.docker", return_value="running"),
+            patch("deploy.smoke_render.time.sleep"),
+        ):
+            self.assertGreaterEqual(wait_ready("demo", self.site, monotonic()), 0)
+        self.assertEqual(probe.call_count, 4)
+
+    def test_startup_fails_when_container_exits(self):
+        from deploy.smoke_render import wait_ready
+        from time import monotonic
+
+        with (
+            patch("deploy.smoke_render.probe_health", side_effect=ConnectionRefusedError),
+            patch("deploy.smoke_render.docker", return_value="exited"),
+            self.assertRaisesRegex(RuntimeError, "Container stopped during startup"),
+        ):
+            wait_ready("demo", self.site, monotonic())
+
+    def test_health_requires_exact_200_json_response(self):
+        from deploy.smoke_render import HOST, probe_health
+
+        with patch("deploy.smoke_render.HTTPConnection") as factory:
+            connection = factory.return_value
+            response = connection.getresponse.return_value
+            response.headers.get_content_type.return_value = "application/json"
+            response.status = 200
+            response.read.return_value = b'{"status":"ok"}'
+            self.assertIsNone(probe_health(self.site, 2))
+            connection.request.assert_called_once_with("GET", "/api/health", headers={"Host": HOST})
+
+            for status in (302, 401, 404, 500):
+                with self.subTest(status=status):
+                    response.status = status
+                    with self.assertRaisesRegex(RuntimeError, str(status)):
+                        probe_health(self.site, 2)
+
+            response.status = 200
+            response.read.return_value = b'{"status":"unavailable"}'
+            with self.assertRaisesRegex(RuntimeError, "Unexpected JSON"):
+                probe_health(self.site, 2)
+
+    def test_unavailable_health_must_end_in_failure_at_deadline(self):
+        from deploy.smoke_render import wait_ready
+        from time import monotonic
+
+        with patch("deploy.smoke_render.STARTUP_TIMEOUT", 0), self.assertRaisesRegex(RuntimeError, "failed to become ready"):
+            wait_ready("demo", self.site, monotonic())

@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Sprout } from 'lucide-react'
-import { request, sessionExpired, setCsrfToken } from './api'
+import { isPublicDemoBuild, request, sessionExpired, setCsrfToken } from './api'
 import { Loading } from './ui'
 import './auth.css'
-
-const demoBuild = import.meta.env.VITE_PUBLIC_DEMO === '1'
 
 export function SessionGate({ children }) {
   const [identity, setIdentity] = useState(undefined)
@@ -72,10 +70,10 @@ export function SessionGate({ children }) {
   }
 
   if (identity === undefined) return <main className="auth-screen"><Loading label="Checking your session" /></main>
-  if (identity && (!demoBuild || (publicDemo && identity.role === 'viewer'))) {
+  if (identity && (!isPublicDemoBuild || (publicDemo && identity.role === 'viewer'))) {
     return children({ user: identity, signOut, authError: notice, signingOut: busy, publicDemo })
   }
-  if (demoBuild) return (
+  if (isPublicDemoBuild) return (
     <main className="auth-screen">
       <section className="auth-panel panel">
         <h1>EcoKitchen demo unavailable</h1>

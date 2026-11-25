@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
-export const apiBase = (import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:5000').replace(/\/+$/, '')
+export const isPublicDemoBuild = import.meta.env.VITE_PUBLIC_DEMO === '1'
+export const apiBase = isPublicDemoBuild ? '' : (import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:5000').replace(/\/+$/, '')
 export const inventoryPath = '/api/inventory'
 export const sessionExpired = 'ecokitchen-session-expired'
 let csrfToken = null

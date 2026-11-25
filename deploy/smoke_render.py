@@ -7,13 +7,17 @@ import os
 import re
 import subprocess
 import time
+from contextlib import closing
+from http.client import HTTPConnection
 from pathlib import Path
 from secrets import token_hex
 from urllib.error import HTTPError
+from urllib.parse import urlsplit
 from urllib.request import ProxyHandler, Request, build_opener
 
 
 ROOT = Path(__file__).resolve().parents[1]
+STARTUP_TIMEOUT = 120
 HOST = "ecokitchen-smoke.onrender.com"
 CONTAINER_PORT = 10031
 MEMORY_LIMIT = 512 * 1024**2
@@ -40,15 +44,45 @@ def call(site, path, status=200, *, method="GET", headers=None):
         return body
 
 
-def wait_ready(site, started):
-    while time.monotonic() - started < 180:
+def published_site(name):
+    endpoint = docker("port", name, f"{CONTAINER_PORT}/tcp", capture=True)
+    if not re.fullmatch(r"127\.0\.0\.1:\d+", endpoint):
+        raise RuntimeError(f"Docker did not publish the expected loopback listener: {endpoint!r}")
+    return "http://" + endpoint
+
+
+def probe_health(site, timeout):
+    target = urlsplit(site)
+    with closing(HTTPConnection(target.hostname, target.port, timeout=timeout)) as connection:
+        connection.request("GET", "/api/health", headers={"Host": HOST})
+        response = connection.getresponse()
+        if response.status in {502, 503}:
+            return f"HTTP {response.status}"
+        if response.status != 200:
+            raise RuntimeError(f"Unexpected HTTP {response.status} from /api/health.")
+        if response.headers.get_content_type() != "application/json":
+            raise RuntimeError("Expected JSON from /api/health.")
+        if json.loads(response.read(4096)) != {"status": "ok"}:
+            raise RuntimeError("Unexpected JSON payload from /api/health.")
+        return None
+
+
+def wait_ready(name, site, started):
+    deadline = started + STARTUP_TIMEOUT
+    last_issue = "no response"
+    while (remaining := deadline - time.monotonic()) > 0:
         try:
-            if call(site, "/api/health") == {"status": "ok"}:
-                return time.monotonic() - started
-        except (OSError, AssertionError):
-            pass
-        time.sleep(0.3)
-    raise RuntimeError("The constrained demo failed to become healthy within 180 seconds.")
+            issue = probe_health(site, min(2, remaining))
+        except (ConnectionRefusedError, ConnectionResetError, TimeoutError) as error:
+            issue = type(error).__name__
+        if issue is None:
+            return time.monotonic() - started
+        last_issue = issue
+        state = docker("inspect", "--format", "{{.State.Status}}", name, capture=True)
+        if state != "running":
+            raise RuntimeError(f"Container stopped during startup ({state}; last probe: {last_issue}).")
+        time.sleep(min(0.3, max(0, deadline - time.monotonic())))
+    raise RuntimeError(f"/api/health at {site} failed to become ready within {STARTUP_TIMEOUT}s ({last_issue}).")
 
 
 def check_http(site):
@@ -91,6 +125,12 @@ def check_http(site):
     })
 
 
+def verify_limits(name):
+    assert docker("exec", name, "cat", "/sys/fs/cgroup/memory.max", capture=True) == str(MEMORY_LIMIT)
+    quota, period = map(int, docker("exec", name, "cat", "/sys/fs/cgroup/cpu.max", capture=True).split())
+    assert quota * 10 == period, (quota, period)
+
+
 def peak(name):
     value = int(docker("exec", name, "cat", "/sys/fs/cgroup/memory.peak", capture=True))
     assert 0 < value < MEMORY_LIMIT, value
@@ -111,12 +151,9 @@ def main():
                "--publish", f"127.0.0.1::{CONTAINER_PORT}", "--env", "ECOKITCHEN_SECRET_KEY",
                "--env", "ECOKITCHEN_PUBLIC_DEMO=1", "--env", "RENDER_EXTERNAL_URL=https://" + HOST,
                "--env", f"PORT={CONTAINER_PORT}", name, env=env)
-        port = docker("port", name, f"{CONTAINER_PORT}/tcp", capture=True).rsplit(":", 1)[1]
-        site = "http://127.0.0.1:" + port
-        startup = wait_ready(site, started)
-        assert docker("exec", name, "cat", "/sys/fs/cgroup/memory.max", capture=True) == str(MEMORY_LIMIT)
-        quota, period = map(int, docker("exec", name, "cat", "/sys/fs/cgroup/cpu.max", capture=True).split())
-        assert quota * 10 == period, (quota, period)
+        site = published_site(name)
+        startup = wait_ready(name, site, started)
+        verify_limits(name)
         check_http(site)
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
             list(pool.map(lambda path: call(site, path),
@@ -131,8 +168,13 @@ def main():
         )
         docker("exec", name, "python", "-c", change_fixture)
         assert call(site, "/api/inventory/ingredients?q=Restart%20sentinel")["total"] == 1
+        restarting = time.monotonic()
         docker("restart", name)
-        restart = wait_ready(site, time.monotonic())
+        new_site = published_site(name)
+        print(f"Docker loopback listener before restart: {site}; after restart: {new_site}.", flush=True)
+        site = new_site
+        restart = wait_ready(name, site, restarting)
+        verify_limits(name)
         assert call(site, "/api/inventory/ingredients?q=Restart%20sentinel")["total"] == 0
         check_http(site)
         second_peak = peak(name)
@@ -142,7 +184,7 @@ def main():
         print(f"Render smoke passed at 0.1 CPU / 512 MiB. Image size: {image:,} bytes "
               f"({image / 1024**2:.1f} MiB). Peak cgroup memory: {max(first_peak, second_peak):,} bytes "
               f"({max(first_peak, second_peak) / 1024**2:.1f} MiB). "
-              f"Startup: {startup:.2f}s, ready after restart command: {restart:.2f}s.")
+              f"Startup: {startup:.2f}s, restart to ready: {restart:.2f}s.")
     except Exception:
         docker("logs", "--tail", "50", name, check=False)
         raise

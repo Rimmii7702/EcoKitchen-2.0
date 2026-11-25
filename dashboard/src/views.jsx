@@ -20,15 +20,15 @@ async function loadOverview(signal) {
   return { lots, ingredients, alerts, history, imported }
 }
 
-function DatasetBanner({ count, total }) {
+function DatasetBanner({ count, total, publicDemo }) {
   const imported = count > 0
   const share = total > 0 ? count / total * 100 : 0
   return (
     <section className="dataset-banner" aria-label="Inventory data source">
       <div className="dataset-copy">
         <span className="dataset-label"><Sprout size={16} />{imported ? 'CSV data source' : 'SQLite data source'}</span>
-        <h2>{imported ? 'Imported demo inventory' : 'Local inventory workspace'}</h2>
-        <p>{imported ? 'Historical CSV lots retain their original expiry dates.' : 'Stock lots and transactions are stored in your local database.'}</p>
+        <h2>{publicDemo ? 'Fictional inventory workspace' : imported ? 'Imported demo inventory' : 'Local inventory workspace'}</h2>
+        <p>{publicDemo ? 'This demo seeds stock lots and transactions into a temporary SQLite database.' : imported ? 'Historical CSV lots retain their original expiry dates.' : 'Stock lots and transactions are stored in your local database.'}</p>
         <a className="button hero-button" href="#inventory">View inventory</a>
       </div>
       <div className="dataset-meter">
@@ -36,14 +36,14 @@ function DatasetBanner({ count, total }) {
         <div className="meter-track" aria-hidden="true"><span style={{ width: share + '%' }} /></div>
         <div className="meter-legend">
           <span><i className="legend-dot imported-dot" />{count} imported</span>
-          <span><i className="legend-dot manual-dot" />{total - count} manual</span>
+          <span><i className="legend-dot manual-dot" />{total - count} {publicDemo ? 'fictional' : 'manual'}</span>
         </div>
       </div>
     </section>
   )
 }
 
-export function Overview({ revision, openDialog }) {
+export function Overview({ revision, openDialog, publicDemo }) {
   const resource = useResource(loadOverview, revision)
   const asOf = resource.data?.alerts.as_of
   return (
@@ -54,7 +54,7 @@ export function Overview({ revision, openDialog }) {
       </PageHeading>
       <Resource resource={resource}>{({ lots, ingredients, alerts, history, imported }) => (
         <>
-          <DatasetBanner count={imported.total} total={lots.total} />
+          <DatasetBanner count={imported.total} total={lots.total} publicDemo={publicDemo} />
           <section className="stat-grid" aria-label="Inventory indicators">
             <StatCard icon={Package} tone="green" label="Stock lots" value={lots.total}
               description={ingredients.total + (ingredients.total === 1 ? ' ingredient' : ' ingredients') + ' in the catalog'} />
