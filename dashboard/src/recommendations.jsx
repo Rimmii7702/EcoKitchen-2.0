@@ -198,11 +198,11 @@ function ScenarioResult({ result }) {
   </div>
 }
 
-export function RecommendationsPage({ revision, canManage }) {
+export function RecommendationsPage({ revision, canManage, publicDemo }) {
   const resource = useResource(loadRecommendations, revision)
   const data = resource.data
   return <>
-    <PageHeading title="Smart Recommendations" description="Prioritize expiring stock, review purchasing quantities, and explore hypothetical stock changes." />
+    <PageHeading title="Smart Recommendations" description={publicDemo ? 'Prioritize expiring stock and review rule-based purchasing quantities.' : 'Prioritize expiring stock, review purchasing quantities, and explore hypothetical stock changes.'} />
     {resource.loading ? <Loading label="Loading recommendations" /> : resource.error ?
       <AiError error={resource.error} retry={resource.retry} /> : <>
         <div className="stat-grid">
@@ -224,6 +224,7 @@ export function RecommendationsPage({ revision, canManage }) {
           <ExpiryPanel title="Use first" subtitle="Near-expiry lots in FEFO order." lots={data.near_expiry}
             empty="No eligible near-expiry lots" action="Prioritize this lot for use" />
           <Replenishment items={data.low_stock} />
+          {publicDemo && <p className="auth-notice">The what-if stock and cost calculator is available in the local administrator app.</p>}
           {canManage && <div className="recommendation-workspace">
             <PriorityRecipe lots={data.near_expiry} ids={data.recipe_ingredient_ids} />
             <Scenario ingredients={data.ingredients} />

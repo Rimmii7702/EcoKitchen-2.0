@@ -202,22 +202,22 @@ function Waste({ data, canManage }) {
   )
 }
 
-export function ForecastingPage({ revision, params, canManage }) {
+export function ForecastingPage({ revision, params, canManage, publicDemo }) {
   const requested = params?.get('view')
-  const tab = requested === 'waste' || requested === 'retail' ? requested : 'demand'
+  const tab = publicDemo ? 'retail' : (requested === 'waste' || requested === 'retail' ? requested : 'demand')
   const resource = useResource(tab === 'retail' ? loadBenchmark : loadForecasting, revision)
   const select = view => { window.location.hash = view === 'demand' ? 'forecasting' : 'forecasting?view=' + view }
   return (
     <>
-      <PageHeading title="Forecasting" description="Review sales history, model evaluations, and synthetic waste scenarios." />
-      <div className="vision-tabs" role="group" aria-label="Forecasting views">
+      <PageHeading title="Forecasting" description={publicDemo ? 'Explore the historical grocery-sales holdout evaluation.' : 'Review sales history, model evaluations, and synthetic waste scenarios.'} />
+      {!publicDemo && <div className="vision-tabs" role="group" aria-label="Forecasting views">
         <button type="button" className={'vision-tab ' + (tab === 'demand' ? 'selected' : '')}
           aria-pressed={tab === 'demand'} onClick={() => select('demand')}><CalendarDays size={18} /> Demand</button>
         <button type="button" className={'vision-tab ' + (tab === 'waste' ? 'selected' : '')}
           aria-pressed={tab === 'waste'} onClick={() => select('waste')}><Beaker size={18} /> Waste prediction</button>
         <button type="button" className={'vision-tab ' + (tab === 'retail' ? 'selected' : '')}
           aria-pressed={tab === 'retail'} onClick={() => select('retail')}><BarChart3 size={18} /> Retail Demand Benchmark</button>
-      </div>
+      </div>}
       {resource.loading ? <Loading label={tab === 'retail' ? 'Loading retail benchmark' : 'Reading forecasting models and data'} /> : resource.error ?
         <ForecastError error={resource.error} retry={resource.retry} /> : tab === 'retail' ?
           <RetailBenchmark data={resource.data} /> : tab === 'demand' ?

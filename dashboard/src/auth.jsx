@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Sprout } from 'lucide-react'
-import { request, sessionExpired, setCsrfToken } from './api'
+import { isPublicDemoBuild, request, sessionExpired, setCsrfToken } from './api'
 import { Loading } from './ui'
 import './auth.css'
 
 export function SessionGate({ children }) {
   const [identity, setIdentity] = useState(undefined)
+  const [publicDemo, setPublicDemo] = useState(false)
   const [notice, setNotice] = useState('')
   const [busy, setBusy] = useState(false)
 
   function accept(result) {
+    setPublicDemo(result.public_demo === true)
     setCsrfToken(result.csrf_token)
     setIdentity(result.user)
   }
@@ -68,7 +70,18 @@ export function SessionGate({ children }) {
   }
 
   if (identity === undefined) return <main className="auth-screen"><Loading label="Checking your session" /></main>
-  if (identity) return children({ user: identity, signOut, authError: notice, signingOut: busy })
+  if (identity && (!isPublicDemoBuild || (publicDemo && identity.role === 'viewer'))) {
+    return children({ user: identity, signOut, authError: notice, signingOut: busy, publicDemo })
+  }
+  if (isPublicDemoBuild) return (
+    <main className="auth-screen">
+      <section className="auth-panel panel">
+        <h1>EcoKitchen demo unavailable</h1>
+        <p role="alert">{notice || 'The read-only demo is currently unavailable.'}</p>
+        <button className="button primary" type="button" onClick={() => window.location.reload()}>Reload demo</button>
+      </section>
+    </main>
+  )
   return (
     <main className="auth-screen">
       <section className="auth-panel panel" aria-labelledby="auth-title">
