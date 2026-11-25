@@ -1,0 +1,251 @@
+path	decision	sha256	evidence
+.dockerignore	included adaptation	a1dc293861ce92753b73123bff5dc34d9995180c338ac573717caf51b574338b	Audited source or candidate-authored adaptation/fixture
+.env.example	included adaptation	f8f5fcaaaabacd834ae15f73505772c54d9edbfb56a69ff76de6d5875bfd2c3e	Audited source or candidate-authored adaptation/fixture
+.github/workflows/ci.yml	included	edf9eb6da2326056cf208c49c490db3c54a46743a1666dab4412f02a8aa5eecf	Audited source or candidate-authored adaptation/fixture
+.gitignore	included	cb3073a195824d192b43c96e62aeb4a5f682ded70e88f5aa6af2179dd0b060f1	Audited source or candidate-authored adaptation/fixture
+Dockerfile	included adaptation	81349be049a823eec8240204634d0e5b54c98de6c4e505b2408f05c67f6be0a7	Audited source or candidate-authored adaptation/fixture
+README.md	included adaptation	a202db2f8014798010dbba853545cf3f736578b6730d3ff91dacb1218f39925e	Audited source or candidate-authored adaptation/fixture
+app.py	included adaptation	479688df8663d05ed39b809d6f0b4f20144021ea5c8e6c83a84a63e9db2fae93	Audited source or candidate-authored adaptation/fixture
+auth_store.py	included	7183e9359063293ab7864e3c1169ec69c91a30d679f121c9a253d3948c1d134a	Audited source or candidate-authored adaptation/fixture
+compose.yaml	included adaptation	1c10ca2e27310c53bc4f11a6113ab200426bd85b307e1ee700344823f27bf988	Audited source or candidate-authored adaptation/fixture
+dashboard/.env.example	included	dc98bd7ee0a6a2bc9340acf7fd51aa64e8b0d4733c75a69340907ca5d0071b84	Audited source or candidate-authored adaptation/fixture
+dashboard/index.html	included	d8b2440b693d4427c9f43359a63a11168c470989d293164794952c7d4ba4b2e9	Audited source or candidate-authored adaptation/fixture
+dashboard/package-lock.json	included	ff3e10543f82fe0a546341f54d4abaf644f53b07dfeb8d681a62c5338d8fd95b	Audited source or candidate-authored adaptation/fixture
+dashboard/package.json	included	5f292e590fec8499f3fe9b2d3f1633f29bd2fcf4d6cff76bed6fef7e33c1e16f	Audited source or candidate-authored adaptation/fixture
+dashboard/src/App.jsx	included adaptation	799dc84326f0822f7e3aea15b4f2c1f3a5b07e91d16823c625c24c6dd3979013	Audited source or candidate-authored adaptation/fixture
+dashboard/src/App.test.jsx	included	1b814eedf2918ee27190ebb143a1303fffe17bc8afc82e8eb1c1f3b8a010d779	Audited source or candidate-authored adaptation/fixture
+dashboard/src/ai.css	included	70bc97c3bc781fd3e563d50973de5a179ae7037eee5e56530ec9a3ac88515b5e	Audited source or candidate-authored adaptation/fixture
+dashboard/src/ai_pages.jsx	included adaptation	ed47b5d0840db86276f584c6b88842a25fa9eda2d05a5f223d62e85d107186ac	Audited source or candidate-authored adaptation/fixture
+dashboard/src/ai_pages.test.jsx	included adaptation	ba8e6c01a01b10f6a0b19b8c7ef69875bfc2ca2261b4c3dddde8b0ad7ed1ca81	Audited source or candidate-authored adaptation/fixture
+dashboard/src/api.js	included	9f4bb6cb06d1ab44c75e386f083abeca8e6be14549de9a0681fbd0d514a23718	Audited source or candidate-authored adaptation/fixture
+dashboard/src/api.test.jsx	included	285294d1852a87c8c9e739c2bfb658e8563646ed1978d430819c7d4ebfe01b72	Audited source or candidate-authored adaptation/fixture
+dashboard/src/auth.css	included	a0865750079f1bf564735f0de610a58e768aaf4a2304cc66be269e15cfdea0c1	Audited source or candidate-authored adaptation/fixture
+dashboard/src/auth.jsx	included	815ece5bb4ec89be5983082a362e270d285c7539f60d0dac528e5562a99ac141	Audited source or candidate-authored adaptation/fixture
+dashboard/src/auth.test.jsx	included adaptation	4df376fd5daaf95ac85a30e2ea4a64851dc9427f150e515640c34ac538dc964d	Audited source or candidate-authored adaptation/fixture
+dashboard/src/dashboard_test_fixture.jsx	included	ab7af685285bfe4a1011934a9722c369888fa9701b1936424c6b3e6804224c7e	Audited source or candidate-authored adaptation/fixture
+dashboard/src/forecasting.css	included	50fd9d6ced16fa4f2a6c5ad174f8a54fa807f225a142a0f2aa96f1625ac19080	Audited source or candidate-authored adaptation/fixture
+dashboard/src/forecasting.jsx	included	ee0c774b6a097b7b5632ed7ea1aa49730bb70f95269f8301303ea0d640e12174	Audited source or candidate-authored adaptation/fixture
+dashboard/src/forecasting.test.jsx	included adaptation	c8191f25e2d6c490b9a5f32faad3a8b59ad6d784fdc5f5dd8018004dbf8802bb	Audited source or candidate-authored adaptation/fixture
+dashboard/src/format.js	included	ef7c2e8775432bf9d3160a660849be42a51b6db4e2388b4926b7c0f0c1a168a5	Audited source or candidate-authored adaptation/fixture
+dashboard/src/forms.jsx	included	cc16a46b98402db7cbb7277951008c7cad6f343bb557080eb8e98f68c084e91f	Audited source or candidate-authored adaptation/fixture
+dashboard/src/main.jsx	included	5328d8da6a660156ab79fec149b818ba2dd7f4827d7a77a785eef6f01a26ca15	Audited source or candidate-authored adaptation/fixture
+dashboard/src/public_vision.test.jsx	included new	fbcb6db5d7848be9b8b2652edb72d861d0506f8ce52ad87c20a5e6c99a3ce950	Audited source or candidate-authored adaptation/fixture
+dashboard/src/recommendations.css	included	1c91e424a2f9ba51f0cfe10395c3fd3995eb75d9605665d6532463edf1768c82	Audited source or candidate-authored adaptation/fixture
+dashboard/src/recommendations.jsx	included	819bb12734c7ba4da6da9f66fd33a335e7cbacfba2a9493a16bac513f21620b5	Audited source or candidate-authored adaptation/fixture
+dashboard/src/recommendations.test.jsx	included	985a14ba875fb32a7be6fdfc3485088125f1b8facc03ca0dabd356be4c532bbb	Audited source or candidate-authored adaptation/fixture
+dashboard/src/retail_benchmark.css	included	1a1be839238f7c8ad23e58f212c95ab97f6a717f97514eb6c57deeb80cfb8318	Audited source or candidate-authored adaptation/fixture
+dashboard/src/retail_benchmark.jsx	included	6d4dea8c35fb4713945e71339617bba2b9417b77da59afcf0e797ac1031366c1	Audited source or candidate-authored adaptation/fixture
+dashboard/src/retail_benchmark.test.jsx	included	90f8d31f67fe23e33f4a67eecdc38ddf115251fc8f82f2ff35b6af340dda38da	Audited source or candidate-authored adaptation/fixture
+dashboard/src/styles.css	included	92dcfd6bea759c357497e4b7f5d546a54b40283be4999553e1c86eaef8151574	Audited source or candidate-authored adaptation/fixture
+dashboard/src/test-setup.js	included	bb2821ae95ba29a78e89f2dde4289dd8d2da27dc8b43e7a426174f9dcb7a076c	Audited source or candidate-authored adaptation/fixture
+dashboard/src/ui.jsx	included	8323b249fb63a937530562001680587ce66ffe24deb9ca5608e23db97f6209bb	Audited source or candidate-authored adaptation/fixture
+dashboard/src/views.jsx	included	60845b51b37cbbf8424a74456537bebfeace5f251c72180a0ca72db0b0a07c56	Audited source or candidate-authored adaptation/fixture
+dashboard/src/vision.css	included	867dac6adf94055a314d80d7a30db0df688e8ca52b89edaf27747d1adce1d01c	Audited source or candidate-authored adaptation/fixture
+dashboard/src/vision.jsx	included adaptation	8cfdfe2663bfe0dcbc946c38e3ceb205c844dbb9ed3a1e5f875316f55566d663	Audited source or candidate-authored adaptation/fixture
+dashboard/vite.config.js	included	67928e052b40408545107b480b084dc2dec6958c2872a02447359b1043e31bab	Audited source or candidate-authored adaptation/fixture
+dashboard_ai_api.py	included adaptation	46c761a2655afacb2a61785b78bdf977f97bbbece91dd62ae2e06d40b389d602	Audited source or candidate-authored adaptation/fixture
+data/fictional-ingredient-catalog.csv	included new	00d3ff576c1c0fa0743aab08de43d1b4cc6ea09d5e3948e1d5ea835141cb14ce	Audited source or candidate-authored adaptation/fixture
+data/fictional-ingredients.csv	included new	57261981bec4b3e8be95e89d7254297e07418d2f0eb5bfb13bba3baf22e54b34	Audited source or candidate-authored adaptation/fixture
+data/fictional-menu.json	included new	a6acb3824de3d0ea576352114297d0c44b75f8a9ff5864256ce7cd5be52a2bd1	Audited source or candidate-authored adaptation/fixture
+data/fictional-recipes.csv	included new	ff4fd2feb4752ed74ecd5a1fe3d05d808d7210c7122217af1c85eb088c42eea1	Audited source or candidate-authored adaptation/fixture
+data/fictional-weekly-sales.csv	included new	2808847c93f9192893d23f0222f855e4e053161a51378f3cfad869e61c530d61	Audited source or candidate-authored adaptation/fixture
+data_loader.py	included adaptation	40922e3fe1e9bbfcd5bd4d944ce63e3e6b5c9edb53a4a540c9f722d8bac9966b	Audited source or candidate-authored adaptation/fixture
+deploy/check_repository.py	included adaptation	5733c1479190e145194448e6b653c16cef2f41f96b0a8b12b890ebd8e6d557dd	Audited source or candidate-authored adaptation/fixture; Phase 7C.2 whitespace cleanup
+deploy/gunicorn.conf.py	included	aa2be1f073bd46b614dc4035316484b97cb87dc8738bca6e21e6388948ccc762	Audited source or candidate-authored adaptation/fixture
+deploy/nginx.conf	included	44c6129c5676cf29ae850439e13977ace20eafb1b047d016552e7358c842194d	Audited source or candidate-authored adaptation/fixture
+deploy/smoke.py	included adaptation	4e382be91cb0649addb6490e5e725b6cb161aae470b578ec2d1d5f56f5daed64	Audited source or candidate-authored adaptation/fixture
+deploy/start_backend.py	included adaptation	1e8f42aca2b8912075f28d10c09a6419cfa24ebdd9bbb3e847865cc5c810ca4a	Audited source or candidate-authored adaptation/fixture
+docs/architecture.md	included adaptation	53f3d1ee8ac92b3176637a6be9c96aacf8100edf7ca11ff488e1ea164237c8ef	Audited source or candidate-authored adaptation/fixture
+docs/deployment.md	included adaptation	c1995cf5fe56bdb3d3dce3c5a60a8b68b1a123bd05a563fcb0d71cd3cfb9796e	Audited source or candidate-authored adaptation/fixture
+docs/figures/freshretailnet-holdout-wape.png	included	23d6406033e56dedc70bc930bceb67d1ddb8d9f01266441bdb34bcbe0add6542	Audited source or candidate-authored adaptation/fixture
+docs/freshretailnet-audit.md	included	5132d20e2b1b3d1533ab90b42ea033fc42e45730f18be95b19737a0cbcb9170c	Audited source or candidate-authored adaptation/fixture
+docs/freshretailnet-baseline.md	included	15b3d19bc1ab6635f99dbf550ad8c4a0cfce138c59a4d0188ea46058b6892a6f	Audited source or candidate-authored adaptation/fixture
+docs/freshretailnet-holdout.md	included	c0ade639ce50283de1f929a385111e44115e50758c8ca17a6601487a46384d29	Audited source or candidate-authored adaptation/fixture
+docs/freshretailnet-lightgbm.md	included	a2fd7db450b05d2d1875d4e2dcce70016b1fb50dbc5a200a12b7890b8e1f5bde	Audited source or candidate-authored adaptation/fixture
+docs/portfolio-demo.md	included adaptation	9d409b37de9b19b951281a33b8eeb2046d087735984c1c9f98958dfc4f4e5ed5	Audited source or candidate-authored adaptation/fixture
+docs/public-release-files.tsv	included new		Audited source or candidate-authored adaptation/fixture
+docs/public-release-verification.md	included new		Audited source or candidate-authored adaptation/fixture
+docs/screenshots/02-dashboard-overview.png	included new	dce07f74ea83d4952748170e95f46a904e4415c2c7bcb64b316df5d37b81931b	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/screenshots/03-inventory-stock-lots.png	included new	b0e96e8fc9f18963866739d0817e0df55457360593d21d14d22087ef23cb6676	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/screenshots/04-expiry-alerts.png	included new	2c7e9c1b14274ae0fd0052640d623ddc2a53a6e0feb09a821203db486f3898b4	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/screenshots/05-smart-recommendations-fefo.png	included new	1d73f8c053db0af0fb8ccf0d4931e93180a6cf05a9597f5969cbed475f1d08bb	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/screenshots/06-replenishment-and-simulation.png	included new	e587b88862fc26a105b5d96fcfe6573801ba673605919c908ac7b065f9856a96	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/screenshots/07-retail-demand-benchmark.png	included new	58358689c369450cf807026703a962a36356e00d15730ab8556b1be5d9381b1c	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/screenshots/08-mobile-overview.png	included new	9b042c9c209a44cddd404f66e9f74f7f780027d6bb0244c9e2a2588cf42579f8	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/screenshots/README.md	included new	316376b70ffee28c42c85593db4a187a8c74fc8a7382f979ea968d491615984b	Phase 7C.2 isolated fictional demo capture or capture credits
+docs/security.md	included adaptation	cd2b4bc0278a2d6489b03778e1357acfcdf2c7a7d7ec7f8df679f4171131821b	Audited source or candidate-authored adaptation/fixture
+docs/third-party-notices.md	included adaptation	51f697570eab016b51b1465a7b3266ab1adb2e6c92449db9f2c100b12ab321e9	Audited source or candidate-authored adaptation/fixture
+forecasting/__init__.py	included	9c7d08b5d00b249b59664d1e77406078c887865c759aeb25c6fc191c45d6ad99	Audited source or candidate-authored adaptation/fixture
+forecasting/data.py	included adaptation	121ad7e22761595deed88f5bd51d4ad4e674f85c772487c4bd0f13734f72adf1	Audited source or candidate-authored adaptation/fixture
+forecasting/demand.py	included	eb1121a429494df10a8d1966e1439f0961956235b8e1a1cb815770d8b6112710	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/__init__.py	included	b642d3684d1245467c113b67f15c042042f0375344fb1f968abf034c833fca84	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/__main__.py	included	136d0304ff9add995ab951943056b80c335a7670e60594a1bba236c5ece9f24e	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/baseline.py	included	b41d4a95e932a05fded7682a9d824e87c95b306c4389d44d3e439cb527b61c0e	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/dataset.py	included	2769edfbff9a04bde7e7d8ec73798523f83fd3cb51c8c965a8632245afe03b64	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/features.py	included	300a40661131d0e08efb619a0ebf6b1996bc11a3f1e5d16e4f9f7edda96da950	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/gbm.py	included	762d046eadb199dfc9298f9016cdc486504a3e6c5ba15b5011d4bcd6fd3bd347	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/holdout-v1.json	included	403421a58ec2e86542338a048d54f04caa17dd3ef8f2480affecfbf76275508e	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/holdout.py	included	4b0ce12f586f3b60c3ceedeae16c0969a6154b9b4ae863af5be86a6557d26b1b	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/holdout_forecasts.py	included	eaa9a71e7bd35136402fe914386e6d1b53a00059f222668afe85e0dd72ed8c37	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/lightgbm-v1.json	included	d13c54df99061d622e6cfeb1f9bd283c6a66f4140566a598832d5cabc9df652f	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/reporting.py	included	1e918663139b07f5bcfc1c26922b238a023ba5cd262a3bcb4bb07d0bf9224acd	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/scoring.py	included	12aa00cbb58bd37f6b16be082567c756007adc227730c076953c95f95c5ee49d	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/supervised.py	included	085393a91bed919701fe80a3e46eaae2d914aa454e7e61649cbd335f79f40add	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/train_lightgbm.py	included	b84a64a8f8c65b4cb2038b922e6e15afaf19dc6c95b001d05822e963e7a2e36e	Audited source or candidate-authored adaptation/fixture
+forecasting/freshretailnet/validation-v1.json	included	fedd67a2a9c3ad7430214e5f485af3ec744142be833cf7421b318802fca52036	Audited source or candidate-authored adaptation/fixture
+forecasting/metrics.py	included	c1c6260b071d5b29858ee465c5a4d91d1f2e6ca01db36339756697408cdc4c98	Audited source or candidate-authored adaptation/fixture
+forecasting/results/freshretailnet-holdout-v1.json	included	3e698b7c117140c6ed9f2598530beaaaabf5274ef123eebef75057df67bbd061	Audited source or candidate-authored adaptation/fixture
+forecasting/results/freshretailnet-lightgbm-validation-v1.json	included	b82fdb9e3c75c187fd7b99047302cb54bbd80b54ca5ed2dbc0b749cf0cfefb70	Audited source or candidate-authored adaptation/fixture
+forecasting/results/freshretailnet-validation-v1.json	included	6f518c229746dae9f28f39f47382ab0f3ba688699766efe9ef580d6386a30c38	Audited source or candidate-authored adaptation/fixture
+forecasting/results/waste-synthetic-v1.json	included	03cd57bfbaa75f170d063005ca3adf115bd2c84a1a3e71fe60812ac1993341d8	Audited source or candidate-authored adaptation/fixture
+forecasting/retail_benchmark.py	included	f011af0260ef185906d74d03b75bbabf485098a4648f453cc4b8a978a84458b8	Audited source or candidate-authored adaptation/fixture
+forecasting/train.py	included	795db41fb2bdb11fb0325198ee9a86d34d280c89aa3637abc78643a7a4e0c862	Audited source or candidate-authored adaptation/fixture
+forecasting/waste.py	included	89f8f70e54d1d0f9aa2d4490e1cc2aa4d67d4845e6729687bd8034751e8d7c38	Audited source or candidate-authored adaptation/fixture
+forecasting_api.py	included	062999f01b8dc746c7869b23878510b3fa288738b1f754db9eab0dbdd5f18205	Audited source or candidate-authored adaptation/fixture
+heat_model.py	included	54c0cb37c4695092f999dc2e641535cbcbe4954eddba982e613cbf197f11ae75	Audited source or candidate-authored adaptation/fixture
+inventary.py	included adaptation	5bb9d441a3a114feed1a564915e51a413bddb07e7a4640a5013410e97f081f61	Audited source or candidate-authored adaptation/fixture
+inventory_api.py	included adaptation	e138c7c024e23885d1d9fc17d100c7b77b6fd30f8bd7e756af179773fe1ad245	Audited source or candidate-authored adaptation/fixture
+inventory_context.py	included	63e075073566368fc50daffcfe07dba13b1fbf2fb2498844cdd7392913ae0c38	Audited source or candidate-authored adaptation/fixture
+inventory_db.py	included	50993a6bfa66abab469ef00bc7c7072325eb8fd1e5535a8c0e3e58aeb216b76f	Audited source or candidate-authored adaptation/fixture
+inventory_service.py	included	1097b2ec9c56c64e0d656785e86e6e125a025bcbf4d1d1bb42e55af2853dc8ec	Audited source or candidate-authored adaptation/fixture
+local_api.py	included	23ddf1d89354c72e8af7104745b153d46c494d351377ad45bb4771045cc71317	Audited source or candidate-authored adaptation/fixture
+main_application.py	included adaptation	6afdc5da247680033190b30750509d0087e3a2aeee3a744f50b8c18a69b5aa8d	Audited source or candidate-authored adaptation/fixture
+own_recipe_generation.py	included adaptation	ba4b3539ca73e5ed689cc218dd6b6b94f423e806122acb1345adf8634b5c12bf	Audited source or candidate-authored adaptation/fixture
+recipe_generator.py	included	47d402bcf808c8ab6100769d79171d4b700d72da93dddc9c10548a49e64b7018	Audited source or candidate-authored adaptation/fixture
+recipe_inventory.py	included	786bf9f4acbb44995b57d0ad431ffff4e9c1ae726dba9789f4662114c56c7a44	Audited source or candidate-authored adaptation/fixture
+recommendations_api.py	included	19cca8f1100e9be66c7e3fa699b7bdf4fa80bacb2439c718998cf7667ada0c09	Audited source or candidate-authored adaptation/fixture
+recommendations_service.py	included	53dd274664b5df0ad54a5abb066f7cd996b9e9c06284782f6d5aada24a2c6464	Audited source or candidate-authored adaptation/fixture
+requirements-ai.txt	included adaptation	7e05f08d09f548150aa7c80a8c75aeb288129140e7b9547b41e5888c9c9f0b43	Audited source or candidate-authored adaptation/fixture
+requirements-ci.in	included	2485ec176d586621882fa637c2104547dacbee7dca94a83e9b5ac9298c4c649f	Audited source or candidate-authored adaptation/fixture
+requirements-ci.lock	included	4dcbd31d28e27e12eeca0d3f319a41686a107f21307f1f5da1195d989875c7c1	Audited source or candidate-authored adaptation/fixture
+requirements-deploy.in	included	37fe2b3a0175a28f647c5ef83a3c385e0a959ba75e5817f0f24dc28e2aad8303	Audited source or candidate-authored adaptation/fixture
+requirements-deploy.lock	included	d8a38c27438baaad46968feb71cd2ff1eccde6e1e99d7e375f56997961b10e7f	Audited source or candidate-authored adaptation/fixture
+requirements-forecasting.txt	included	4e325667aabd259efec18797d2ab39b9fd7f25ae663177a955a7ed1efd2ea6d8	Audited source or candidate-authored adaptation/fixture
+requirements-freshretailnet-lightgbm.txt	included	cffefe69a9eb40d3f92111072f45dc6eb8c416ae74fb33834a026bd3cb336d26	Audited source or candidate-authored adaptation/fixture
+requirements-freshretailnet.txt	included	8cedbe2f00c54de45a75b5f0de6e924f55631254e915f702556fb37bee17058e	Audited source or candidate-authored adaptation/fixture
+requirements.txt	included	b72499eb15a47f426bab4fa4903b1fe0e50e46a121182bc1cf950eab08307212	Audited source or candidate-authored adaptation/fixture
+reverse_proxy.py	included	0d441c17dd3885ba3a8faffc378b49ea5552e9f8443b785cd0dec2420be623ff	Audited source or candidate-authored adaptation/fixture
+runtime_config.py	included adaptation	2c5915ef7a0c1258038a529a3d23d0cff013d58e79747f90c8d6ea86a4809ce4	Audited source or candidate-authored adaptation/fixture
+security.py	included	e908169eefe8d66e59ecf2db025429b48f8a215063b9093c7eb68ab0c6ab73b7	Audited source or candidate-authored adaptation/fixture
+spoilage.py	included new	483b899216efa1218ea33e6acd60112bd156f836462f2e12fb05fb895d8a55d7	Audited source or candidate-authored adaptation/fixture
+static/css/style_3.css	included	6a41501cfe525ce7ae1b202a07101dd5a988bce7b5fdca437b7ae705f147e143	Audited source or candidate-authored adaptation/fixture; Phase 7C.2 whitespace cleanup
+static/css/style_4.css	included	0fd566fc9181c040a5045ce31ddbcafe5d0aef03f1e6901f9d70d44f594dbb3a	Audited source or candidate-authored adaptation/fixture; Phase 7C.2 whitespace cleanup
+static/css/styles_1.css	included	4e22a9899d3b0bcb8b146c3f98768147e848bf69c9e6bc12ad0ea4f5d407b8d6	Audited source or candidate-authored adaptation/fixture
+static/js/heatmap.js	included	3dc7c7b658ebf96896aaa871394ae1eedeb2f36ca8aeb993aea6f336f6d61ff2	Audited source or candidate-authored adaptation/fixture
+templates/Inventory_track.html	included adaptation	5e71051134ab42fbe4fb32f4869c77bad6ec8bdc7ebf4b00bc3d4e6fad88e41e	Audited source or candidate-authored adaptation/fixture
+templates/index.html	included adaptation	6bd3d8821721ebb09069a08d6c2dc0c627ce5367bfcb88e6327cd94d5974c807	Audited source or candidate-authored adaptation/fixture
+templates/inventory.html	included	39354f0497a2b5b6eaa1015ad96b691e83c663e3c2baed5f900e518f29dad4b8	Audited source or candidate-authored adaptation/fixture
+templates/kitchen_heatmap.html	included	fdede07028ee26125c75dba7a283baae1100a4efb0c5b336a685d8d0f3be471c	Audited source or candidate-authored adaptation/fixture
+templates/live_spoilage_status.html	included	ea2ac16bd0c5376e6b9b6e584008d64a6be486a632b4a095eb84ecf769814f1b	Audited source or candidate-authored adaptation/fixture
+templates/login.html	included	def24a8ea767c7bd3eaf8d2717ba9f59e97700b927cb146ad638bc6a90420219	Audited source or candidate-authored adaptation/fixture
+templates/own_recipe_generation.html	included	32cc25b77596ea2d90d2a36fb0ef51a592f5cc0251c226498578f6f9a622055e	Audited source or candidate-authored adaptation/fixture; Phase 7C.2 whitespace cleanup
+templates/recipe_detail.html	included	07ac74649fa51d5f978ab1aedf217f84862901e8c62d1561c67a581d0416194e	Audited source or candidate-authored adaptation/fixture
+templates/results_error.html	included	75ce18395bdf3c9d0e7a252577edea9e7162d77f748a72cc239709c1775c6ae7	Audited source or candidate-authored adaptation/fixture
+templates/results_image.html	included	84354206db22cee80a8bdc51ec5c1d1b750f8d5018b566d4715222d1cd013396	Audited source or candidate-authored adaptation/fixture; Phase 7C.2 whitespace cleanup
+templates/results_video.html	included	034e7816a04aeb0fe0496c0c3e57c938ef202a330eee3d87eded67421daf360f	Audited source or candidate-authored adaptation/fixture; Phase 7C.2 whitespace cleanup
+templates/todays_special.html	included adaptation	b07a85022856b15c7330fb0a82d130d19e4e37d9877834bcba286fc2c301e956	Audited source or candidate-authored adaptation/fixture
+templates/waste.html	included adaptation	f5764ab126379cb8e73a356bba00b3185d71235480d1aad04e4a3d358c079bf2	Audited source or candidate-authored adaptation/fixture
+tests/auth_fixture.py	included	c9e2cf8ffb39a9ea532556b809f1dbff0c9224169e0ed183db4d90e385f77a3f	Audited source or candidate-authored adaptation/fixture
+tests/test_app_boundaries.py	included	8ff499b5efc0a7a485ffab45f3bc3f6b816d74f0f1510973b1164a93bed6e34a	Audited source or candidate-authored adaptation/fixture
+tests/test_dashboard_ai.py	included adaptation	52d2a6e11064bd5526cd99d17f9e9d2b52e9cb5dff21b5779674734286dc5a51	Audited source or candidate-authored adaptation/fixture
+tests/test_deployment.py	included	b0da1c8828b8d8f1492223cb10f77f4e67cd13d8c214a1d9a715fa1360dba56d	Audited source or candidate-authored adaptation/fixture
+tests/test_forecasting.py	included adaptation	10c33ced36097b4b64b91bda482573d3425df47872bc019afc79fd74d2ef4f98	Audited source or candidate-authored adaptation/fixture
+tests/test_freshretailnet_baseline.py	included	c37aaa3be520d528476cd8f00697d20711b2def14e751afc585ea75fd5cebe97	Audited source or candidate-authored adaptation/fixture
+tests/test_freshretailnet_holdout.py	included	8a479bd655d764017cec5c08cc290d6c23e3658bfd47e566afa966b8c1033b22	Audited source or candidate-authored adaptation/fixture
+tests/test_freshretailnet_lightgbm.py	included	070b8957f741c04eff10c1beb3019d62df487b1cefb40623c24f7823572b361f	Audited source or candidate-authored adaptation/fixture
+tests/test_inventory.py	included adaptation	de312c8c8631ad04917a1f76642fb023dccd41ac1ede8937fea1980bf3d02f7d	Audited source or candidate-authored adaptation/fixture
+tests/test_public_vision.py	included new	169d7dbc92544c070af9a1d15612be7c8f3e00496e19bc0a59e8b7e5c68c410e	Audited source or candidate-authored adaptation/fixture
+tests/test_recommendations.py	included	78a9c09347bb0febf8f8d0f0d37204753d2deb80a20d1ec1728fa135ea112c84	Audited source or candidate-authored adaptation/fixture
+tests/test_retail_benchmark.py	included	3396c41f1d0179c92cba25974031f628f3c5aff68dae4d85ea0192836ce2a099	Audited source or candidate-authored adaptation/fixture
+tests/test_security.py	included adaptation	a677372301dcb04c62ae320c56f6df7845a19fb13e6f3f143a374b571eb683a8	Audited source or candidate-authored adaptation/fixture
+tests/test_smoke.py	included adaptation	f89123b2d22a6d53d0ca9a52cab3baafe76e0b0188438980b9157f5b25b34e62	Audited source or candidate-authored adaptation/fixture
+tools/build_release_fixtures.py	included new	805573e4acf5f79947f46e82e27d288f3bf0abf6e66e706adb6dddc2f361215f	Audited source or candidate-authored adaptation/fixture; Phase 7C.2 whitespace cleanup
+tools/plot_portfolio_benchmark.py	included	b8d0b226709276a21932de239550455b818682d7b2547594f8df0191c650ea46	Audited source or candidate-authored adaptation/fixture
+tools/portfolio_demo.py	included adaptation	e87f23a98e037258d0d1ce62a57d22e45253fb127e0ceedadd79bed9f51ea08d	Audited source or candidate-authored adaptation/fixture
+vision_api.py	included adaptation	b7e212cacaebd25d908683259019b745b31cd5edc4ca2a71967002bc877d6433	Audited source or candidate-authored adaptation/fixture
+vision_media.py	included	1ea60288a22b6eed8f82a51a01b236092bddc29abb606c3c2020cc272da823a8	Audited source or candidate-authored adaptation/fixture
+.Rhistory	excluded		Phase 7A Exclude. Tracked empty R editor history, omit from publication.
+Scope_Understanding.pdf	excluded		Phase 7A Hold. Original presentation material or diagram; confirm contributors, embedded assets and privacy.
+camera_feed.py	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+dashboard/src/vision.test.jsx	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+data/Grocery_Inventory_and_Sales_Dataset.csv	excluded		Phase 7A Hold. 990 rows with supplier fields and warehouse locations; exact source and redistribution grant unverified. Legacy ingredient list uses it.
+data/Ingredients.csv	excluded		Phase 7A Hold. 139 rows. Team-created per project deck slide 12; CSV import and legacy fallback. Team approval and data review pending.
+data/Recipes.csv	excluded		Phase 7A Hold. 119 rows. Team-created per project deck slide 12; legacy and AI menu catalog. Team approval and data review pending.
+data/Sales_Weekly.csv	excluded		Phase 7A Hold. 56 rows. Team-created per project deck slide 12; audit and reproducibility tests. Team approval and data review pending.
+data/inventory_metadata.csv	excluded		Phase 7A Hold. 174 image-name metadata rows; dataset and labels need asset-level mapping. Optional vision input.
+data/selling_price data.csv	excluded		Phase 7A Hold. 58 rows. Team-created per project deck slide 12; legacy cost optimizer. Team approval and data review pending.
+deploy/legacy-assets.txt	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+docs/github-release-audit.md	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+docs/github-release-files.tsv	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+docs/release-manifest.txt	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+docs/release-readiness.md	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+docs/screenshots/01-login.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/02-dashboard-overview.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/03-inventory-stock-lots.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/04-expiry-alerts.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/05-smart-recommendations-fefo.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/06-replenishment-and-simulation.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/07-retail-demand-benchmark.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/08-mobile-overview.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/09-mobile-navigation.png	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+docs/screenshots/README.md	excluded		Phase 7A Hold. Original edition screenshot or capture index held for review.
+flowchart/1.png	excluded		Phase 7A Hold. Original presentation material or diagram; confirm contributors, embedded assets and privacy.
+flowchart/2.png	excluded		Phase 7A Hold. Original presentation material or diagram; confirm contributors, embedded assets and privacy.
+flowchart/3.png	excluded		Phase 7A Hold. Original presentation material or diagram; confirm contributors, embedded assets and privacy.
+flowchart/4.png	excluded		Phase 7A Hold. Original presentation material or diagram; confirm contributors, embedded assets and privacy.
+flowchart/5.png	excluded		Phase 7A Hold. Original presentation material or diagram; confirm contributors, embedded assets and privacy.
+forcasting/cost_optimization.py	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+forcasting/inventory_sales_forcasting.ipynb	excluded		Phase 7A Hold. No notebook license; saved outputs and dataset provenance need review. Offline only.
+forcasting/waste_prediction (1).ipynb	excluded		Phase 7A Hold. No notebook license; saved outputs and dataset provenance need review. Offline only.
+forecasting/results/demand-audit-v1.json	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+inventory_results/11-power-bi-azure-map-1024x562_annotated.jpg	excluded		Phase 7A Hold. Filename suggests external image; matching public filename is different in bytes. Derivatives also need clearance.
+inventory_results/11-power-bi-azure-map-1024x562_result.json	excluded		Phase 7A Hold. Filename suggests external image; matching public filename is different in bytes. Derivatives also need clearance.
+inventory_results/7_annotated.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+inventory_results/7_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+inventory_results/IMG_2955_jpeg.rf.4cf6672102e7dfb04b09d0aa6a634b2e_annotated.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+inventory_results/IMG_2955_jpeg.rf.4cf6672102e7dfb04b09d0aa6a634b2e_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+inventory_results/image_20220317120229_000004_0259_jpg.rf.006d2b6049ac6b96ca6e78d2bf4ad2f8_annotated.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+inventory_results/image_20220317120229_000004_0259_jpg.rf.006d2b6049ac6b96ca6e78d2bf4ad2f8_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+inventory_system.py	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+ppt/The Outliers.pptx	excluded		Phase 7A Hold. Original presentation material or diagram; confirm contributors, embedded assets and privacy.
+python.exe -m flask --app appapp run --host 127.0.0.1 --port 5000	excluded		Phase 7A Exclude. Untracked accidental launch artifact, omit from publication.
+recommendations.json	excluded		Phase 7A Hold. Dated saved menu snapshot; confirm underlying inputs and provider/output terms or supply reviewed fixture.
+static/.DS_Store	excluded		Phase 7A Exclude. Tracked generated macOS folder metadata, omit from publication.
+static/heatmap_results/dist_graph_3.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_results/dist_graph_4.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_results/dist_graph_6.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_results/dist_graph_7.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_results/heatmap_3.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_results/heatmap_4.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_results/heatmap_6.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_results/heatmap_7.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_uploads/3.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_uploads/4.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_uploads/6.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/heatmap_uploads/7.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/inventory_results/11-power-bi-azure-map-1024x562_result.json	excluded		Phase 7A Hold. Filename suggests external image; matching public filename is different in bytes. Derivatives also need clearance.
+static/inventory_results/7_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/inventory_results/IMG_2955_jpeg.rf.4cf6672102e7dfb04b09d0aa6a634b2e_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/inventory_results/add_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/inventory_results/image_20220317120229_000004_0259_jpg.rf.006d2b6049ac6b96ca6e78d2bf4ad2f8_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/inventory_results/remove2_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/inventory_results/videoplayback_result.json	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+static/js/main_1.js	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+static/js/main_4.js	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+static/results/yolo_11-power-bi-azure-map-1024x562.png	excluded		Phase 7A Hold. Filename suggests external image; matching public filename is different in bytes. Derivatives also need clearance.
+static/results/yolo_2022-02-04T123753_1280x1280_jpg.rf.b101da0a2063c37ebeb6c7d8b39cca28.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+tests/test_vision.py	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+uploads/11-power-bi-azure-map-1024x562.png	excluded		Phase 7A Hold. Filename suggests external image; matching public filename is different in bytes. Derivatives also need clearance.
+uploads/2022-02-04T123753_1280x1280_jpg.rf.b101da0a2063c37ebeb6c7d8b39cca28.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/3.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/5.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/7.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/IMG_2955_jpeg.rf.4cf6672102e7dfb04b09d0aa6a634b2e.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/add.mp4	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/image_20220317120229_000004_0259_jpg.rf.006d2b6049ac6b96ca6e78d2bf4ad2f8.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/remove2.mp4	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/spoiled2.jpg	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+uploads/videoplayback.mp4	excluded		Phase 7A Hold. Legacy source media or derived output. Asset ownership, source and reuse permission unverified.
+vision_pipeline.py	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+waste_model.py	excluded		Phase 7A Include after ownership review. Superseded internal artifact or omitted implementation, test, or data-dependent legacy tool.
+yolov8n.pt	excluded		Phase 7A Exclude. Ultralytics YOLOv8n, embedded AGPL and COCO indicators. Generic weights are unnecessary for app inference.

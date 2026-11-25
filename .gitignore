@@ -1,0 +1,71 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+credentials.json
+.netrc
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.DS_Store
+.Rhistory
+.ipynb_checkpoints/
+*.log
+*.tmp
+/python.exe -m flask --app app* run --host 127.0.0.1 --port 5000
+
+# Downloaded external reference datasets
+/data/external/
+*.parquet
+*.feather
+*.arrow
+
+# Model weights and new runtime artifacts. Existing tracked assets stay tracked.
+*.pt
+*.pth
+*.onnx
+*.keras
+*.h5
+*.pkl
+*.joblib
+*.safetensors
+*.ckpt
+*.lgbm
+/artifacts/
+/outputs/
+/local-models/
+/compose.models.yaml
+/uploads/*
+/inventory_results/*
+/static/uploads/*
+/static/inventory_results/*
+/static/results/*
+/static/heatmap_uploads/*
+/static/heatmap_results/*
+/recommendations.local.json
+
+# Local database and SQLite journal files
+/instance/
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-*
+*.sqlite3-*
+*.db-*
+
+# Local React workspace
+/dashboard/node_modules/
+/dashboard/dist/
+/dashboard/.tools/
+/dashboard/coverage/

@@ -1,0 +1,1 @@
+"""EcoKitchen forecasting and simulation workflows."""

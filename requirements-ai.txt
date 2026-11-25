@@ -1,0 +1,5 @@
+-r requirements.txt
+Pillow==13.0.0
+opencv-python==4.9.0.80
+matplotlib==3.8.4
+google-genai==2.34.0

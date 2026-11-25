@@ -1,0 +1,27 @@
+{
+  "date": "2024-01-08",
+  "fictional_demo": true,
+  "expiring_ingredients": [],
+  "todays_special": {
+    "demo_soup": {
+      "name": "Fictional demo lentil soup",
+      "description": "Independently written example for the saved menu view.",
+      "ingredients": [
+        "Demo lentils",
+        "Water"
+      ],
+      "recipe": "Rinse, then simmer the lentils in water until tender."
+    }
+  },
+  "two_week_menu": {
+    "demo_rice": {
+      "name": "Fictional demo herb rice",
+      "description": "Independently written example for the two-week menu.",
+      "ingredients": [
+        "Demo rice",
+        "Demo mint"
+      ],
+      "recipe": "Cook the rice, then stir in chopped mint."
+    }
+  }
+}

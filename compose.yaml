@@ -1,0 +1,63 @@
+services:
+  backend:
+    build:
+      context: .
+      target: backend
+      args:
+        INSTALL_AI: ${ECOKITCHEN_INSTALL_AI:-0}
+    environment:
+      ECOKITCHEN_AUTH_MODE: loopback
+      ECOKITCHEN_SECRET_KEY: ${ECOKITCHEN_SECRET_KEY:?Generate a session secret as described in docs/deployment.md}
+      ECOKITCHEN_TRUSTED_PROXY: ${ECOKITCHEN_DOCKER_NETWORK_PREFIX:-172.30.96}.2
+      ECOKITCHEN_PROXY_ORIGIN: http://127.0.0.1:${ECOKITCHEN_PORT:-8080}
+      INVENTORY_CORS_ORIGINS: ""
+      INVENTORY_DB_PATH: /app/instance/inventory.sqlite3
+      ECOKITCHEN_AUTH_DB: /app/instance/auth.sqlite3
+      RECOMMENDATIONS_FILE: /app/instance/recommendations.json
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.8-flash}
+      GEMINI_RECIPE_MODEL: ${GEMINI_RECIPE_MODEL:-gemini-3.5-flash-lite}
+    volumes:
+      - state:/app/instance
+    networks:
+      application:
+        ipv4_address: ${ECOKITCHEN_DOCKER_NETWORK_PREFIX:-172.30.96}.3
+    restart: unless-stopped
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, 'from urllib.request import urlopen; urlopen("http://127.0.0.1:8000/api/health", timeout=3).close()']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  web:
+    build:
+      context: .
+      target: web
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${ECOKITCHEN_PORT:-8080}:8080"
+    environment:
+      ECOKITCHEN_PORT: ${ECOKITCHEN_PORT:-8080}
+    networks:
+      application:
+        ipv4_address: ${ECOKITCHEN_DOCKER_NETWORK_PREFIX:-172.30.96}.2
+    restart: unless-stopped
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD-SHELL, 'wget -q --spider --header="Host: 127.0.0.1:$${ECOKITCHEN_PORT}" http://127.0.0.1:8080/api/health && wget -q --spider http://127.0.0.1:8080/']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  application:
+    ipam:
+      config:
+        - subnet: ${ECOKITCHEN_DOCKER_NETWORK_PREFIX:-172.30.96}.0/28
+
+volumes:
+  state:

@@ -1,0 +1,12 @@
+{
+  "experiment_version": "freshretailnet-official-holdout-v1",
+  "validation_protocol_sha256": "afd9f0308eb38283c5bccb8b2732db35a32fa9e139cd010c41cce8b62d95fdd7",
+  "validation_config_sha256": "63244af1ddea565e6b315fa17445e08a4b6dc5ca8b60f2522e0e777d95c6876f",
+  "validation_scorecard_sha256": "663303a4b18435d6ea03cd2cf8b16849fcbd341b3aedf0625c9dfa450480e403",
+  "feature_schema_sha256": "d3d3dc4837eff27654bb8297d3cf3746b362fa09d405eb48fab920143d745c93",
+  "selected_iterations": 96,
+  "refit_through": "2024-06-25",
+  "forecast_origin": "2024-06-25",
+  "predictions_per_horizon": 50000,
+  "horizons": 7
+}

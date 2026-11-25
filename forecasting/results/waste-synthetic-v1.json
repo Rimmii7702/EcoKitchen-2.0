@@ -1,0 +1,47 @@
+{
+  "algorithms": {
+    "mean": "Training mean",
+    "midpoint_rule": "Fixed midpoint simulation rule",
+    "random_forest": "Random Forest"
+  },
+  "methodology": {
+    "evaluation": "Seeded 80/20 holdout from an artificial target. Category encoding is fit on training only.",
+    "expiry_factor": 1.1646205132365048,
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.17.1",
+    "seed": 42,
+    "trees": 100
+  },
+  "schema_version": 1,
+  "selected": "random_forest",
+  "source": {
+    "kind": "synthetic",
+    "name": "Notebook-generated scenario data"
+  },
+  "split": {
+    "test_samples": 200,
+    "train_samples": 800
+  },
+  "task": "waste_simulation",
+  "test": {
+    "mean": {
+      "mae": 94.08519604806419,
+      "r2": -0.00011474005002254373,
+      "rmse": 113.29735163027769
+    },
+    "midpoint_rule": {
+      "mae": 1.4320704084801241,
+      "r2": 0.9996462128516292,
+      "rmse": 2.13091374384846
+    },
+    "random_forest": {
+      "mae": 5.7357032613406815,
+      "r2": 0.9941529533399254,
+      "rmse": 8.662896464360736
+    }
+  },
+  "units": "simulated units",
+  "version": "waste-synthetic-v1"
+}

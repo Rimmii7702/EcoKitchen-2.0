@@ -1,0 +1,3 @@
+-r requirements-deploy.in
+-r requirements-forecasting.txt
+-r requirements-freshretailnet-lightgbm.txt

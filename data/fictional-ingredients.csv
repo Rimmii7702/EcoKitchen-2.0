@@ -1,0 +1,4 @@
+Name,Catagory,Quantity,Unit,Cost per Unit,Expiry date,Minimum stock level,No of days after restock.
+Demo lentils,Pantry,2.500,kg,2.40,2028-01-02,3,2
+Demo lentils,Pantry,3.000,kg,2.40,2028-01-05,7,5
+Demo mint,Produce,1.250,kg,,2028-02-30,2,1

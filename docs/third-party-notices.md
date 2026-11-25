@@ -1,0 +1,32 @@
+# EcoKitchen third-party notices
+
+This inventory records upstream terms for components used by EcoKitchen. The EcoKitchen owner authorized publication of the original source, original figures and fictional fixtures without a project-wide license. Third-party materials remain under their own terms. [Source publication checks](public-release-verification.md)
+
+## FreshRetailNet-50K
+
+The FreshRetailNet-50K v1.0 dataset was published by **Dingdong-Inc** under **Creative Commons Attribution 4.0 International**. Cite Yangyang Wang et al. (2025), *FreshRetailNet-50K: A Stockout-Annotated Censored Demand Dataset for Latent Demand Recovery and Forecasting in Fresh Retail*, arXiv:2505.16319. EcoKitchen derived fixed-origin predictions, aggregate evaluation metrics, daily charts, and stockout cohorts from that data. These are EcoKitchen's analyses. The original Parquet files are unchanged and excluded from source and runtime images. Keep the attribution, source and license links, notice of adaptations, and any supplied notices with redistributed figures or results. [Dataset card](https://huggingface.co/datasets/Dingdong-Inc/FreshRetailNet-50K) · [Technical report](https://arxiv.org/abs/2505.16319) · [CC BY 4.0 legal code](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+The publisher's separate baseline software uses Apache-2.0. The audit found a reference to it in project documentation. If code is copied or adapted, preserve the applicable upstream license and attribution and mark changes as required. The dataset license covers the dataset and does not license the baseline software. [Upstream baseline license](https://github.com/Dingdong-Inc/frn-50k-baseline/blob/main/LICENSE)
+
+## Dashboard and legacy UI
+
+| Component | Terms and distribution action |
+| --- | --- |
+| React and React DOM | MIT. Preserve the packages' full copyright and MIT license notices in a distributed dashboard bundle. [Upstream license](https://github.com/react/react/blob/main/LICENSE) |
+| Lucide React | ISC. Its license file includes MIT notices for icons derived from Feather. Keep the complete license file if distributing the bundle. [Upstream license](https://github.com/lucide-icons/lucide/blob/main/LICENSE) |
+| DM Sans and Manrope | SIL Open Font License 1.1. The Vite build emits WOFF2 files. Include the full OFL and font-specific copyright notices with redistributed files. Use the license texts from the locked Fontsource packages. [DM Sans](https://fontsource.org/fonts/dm-sans/about) · [Manrope](https://github.com/google/fonts/blob/main/ofl/manrope/OFL.txt) |
+| Legacy Poppins, Chart.js, Font Awesome Free 5.15.4 | The Flask templates reference these through public CDNs. Poppins is OFL 1.1. Chart.js is MIT. Font Awesome Free uses OFL 1.1 for fonts, CC BY 4.0 for SVG/JS icons, and MIT for code. Preserve the applicable notices if vendoring or distributing them. [Poppins](https://github.com/google/fonts/blob/main/ofl/poppins/OFL.txt) · [Chart.js](https://www.chartjs.org/docs/) · [Font Awesome 5.15.4](https://github.com/FortAwesome/Font-Awesome/blob/5.15.4/LICENSE.txt) |
+
+The dashboard captures show the original UI with rendered icons and fonts. The captures contain no font software or JavaScript. The SIL OFL allows the use of OFL fonts to produce graphics. [Screenshot credits](screenshots/README.md) · [SIL OFL FAQ](https://openfontlicense.org/ofl-faq/#11-can-i-use-the-fonts-for-a-book-or-other-print-publication-to-create-logos-or-other-graphics-or-even-to-manufacture-objects-based-on-their-outlines)
+
+For a downloadable Windows dashboard ZIP or public container image, assemble notices from the actual locked packages and the files shipped. Keep license files and attribution with the artifact, including any bundled transitive software and base-image components. A source checkout uses dependency manifests and does not vendor installed npm or pip packages.
+
+## Candidate dependency review
+
+The locked Python package metadata identifies Flask and Werkzeug as BSD-3-Clause and SQLAlchemy, Gunicorn, DuckDB and LightGBM as MIT. NumPy, pandas, SciPy and scikit-learn use BSD-style terms with package-specific notices. The examined Matplotlib wheel declares PSF and Pillow 13.0.0 declares MIT-CMU. The optional OpenCV wheels include MIT-licensed packaging and Apache-2.0 OpenCV code, with separate bundled notices. Vite and Vitest are MIT build/test dependencies. The React bundle still emits the two OFL font families and Lucide/Feather-derived icon artwork. These source manifests install upstream packages. They do not carry installed packages or built bundles. Check the actual binary notice files before any ZIP or image release. [Flask](https://github.com/pallets/flask/blob/main/pyproject.toml) · [DuckDB](https://github.com/duckdb/duckdb-python) · [OpenCV wheel licensing](https://github.com/opencv/opencv-python#licensing)
+
+## Vision assets and external services
+
+- Ultralytics publishes YOLOv8 software and models under AGPL-3.0 and offers a separate Enterprise license. The local generic `yolov8n.pt` archive contains Ultralytics, AGPL and COCO references; exclude it from the public baseline and verify the exact source release and obligations before separate redistribution. The candidate excludes the Ultralytics implementation and weights. For each custom artifact, verify the training code and weights terms, the datasets and annotations, and permission to distribute. An optional install or separate download does not resolve whether the integrated YOLO distribution is subject to AGPL terms. [Ultralytics licensing](https://www.ultralytics.com/license) · [YOLOv8 documentation](https://docs.ultralytics.com/models/yolov8) · [AGPL-3.0 text](https://opensource.org/license/agpl-3-0)
+- The original project deck references multiple Roboflow assets. One public [Food Waste Detection dataset](https://universe.roboflow.com/food-1b74y/food-waste-detection-jghxg) displays CC BY 4.0. No verified mapping connects that licensed dataset version to each local image, video, annotation, or model. For identifiable files, retain the exact publisher, version, source, license, and changes, and check underlying content rights.
+- Gemini generation requires the operator's own approved credentials and provider terms. The saved menu's input data and any distribution obligations require review before sharing the original snapshot. A cleared static fixture can demonstrate menu rendering without a live request.
