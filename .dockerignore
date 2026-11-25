@@ -31,6 +31,12 @@
 !/deploy/start_backend.py
 !/deploy/gunicorn.conf.py
 !/deploy/nginx.conf
+!/deploy/Dockerfile.render
+!/deploy/render_demo.py
+!/deploy/start_render.py
+!/deploy/nginx.render.conf
+!/tools/
+!/tools/portfolio_demo.py
 
 # Disallow sensitive extensions even inside a permitted source directory.
 **/.env*

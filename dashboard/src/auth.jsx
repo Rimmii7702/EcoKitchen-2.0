@@ -4,12 +4,16 @@ import { request, sessionExpired, setCsrfToken } from './api'
 import { Loading } from './ui'
 import './auth.css'
 
+const demoBuild = import.meta.env.VITE_PUBLIC_DEMO === '1'
+
 export function SessionGate({ children }) {
   const [identity, setIdentity] = useState(undefined)
+  const [publicDemo, setPublicDemo] = useState(false)
   const [notice, setNotice] = useState('')
   const [busy, setBusy] = useState(false)
 
   function accept(result) {
+    setPublicDemo(result.public_demo === true)
     setCsrfToken(result.csrf_token)
     setIdentity(result.user)
   }
@@ -68,7 +72,18 @@ export function SessionGate({ children }) {
   }
 
   if (identity === undefined) return <main className="auth-screen"><Loading label="Checking your session" /></main>
-  if (identity) return children({ user: identity, signOut, authError: notice, signingOut: busy })
+  if (identity && (!demoBuild || (publicDemo && identity.role === 'viewer'))) {
+    return children({ user: identity, signOut, authError: notice, signingOut: busy, publicDemo })
+  }
+  if (demoBuild) return (
+    <main className="auth-screen">
+      <section className="auth-panel panel">
+        <h1>EcoKitchen demo unavailable</h1>
+        <p role="alert">{notice || 'The read-only demo is currently unavailable.'}</p>
+        <button className="button primary" type="button" onClick={() => window.location.reload()}>Reload demo</button>
+      </section>
+    </main>
+  )
   return (
     <main className="auth-screen">
       <section className="auth-panel panel" aria-labelledby="auth-title">

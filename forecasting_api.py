@@ -1,16 +1,14 @@
 """Local forecasts and clearly labeled synthetic scenarios."""
 
 import csv
-import json
 import os
-from functools import lru_cache
 
 from flask import Blueprint, abort, current_app, jsonify, request
 from werkzeug.exceptions import HTTPException
 
 from forecasting.data import audit_sales_sample
 from forecasting.demand import LAGS, METHODS, predict_demand
-from forecasting.retail_benchmark import project_holdout
+from forecasting.retail_api import benchmark_response, read_json
 from forecasting.waste import CATEGORIES, SCENARIO_FIELDS, predict_waste, scenario_values
 from local_api import add_local_cors, require_local_request
 from runtime_config import ROOT, project_path
@@ -40,34 +38,9 @@ def request_error(error):
     return jsonify(error=error.description), error.code
 
 
-def invalid_constant(value):
-    raise ValueError(f"Invalid JSON number: {value}")
-
-
-@lru_cache(maxsize=6)
-def decode_file(path, _mtime, _size):
-    return json.loads(path.read_text(encoding="utf-8"), parse_constant=invalid_constant)
-
-
-def read_json(path):
-    try:
-        stat = path.stat()
-        data = decode_file(path, stat.st_mtime_ns, stat.st_size)
-    except (OSError, ValueError):
-        return None
-    return data if isinstance(data, dict) else None
-
-
 @forecasting_api.get("/retail-benchmark")
 def retail_benchmark():
-    scorecard = read_json(RESULTS / "freshretailnet-holdout-v1.json")
-    if scorecard is None:
-        abort(503, description="The published retail benchmark scorecard is missing or unreadable.")
-    try:
-        data = project_holdout(scorecard)
-    except (TypeError, KeyError, ValueError, OverflowError):
-        abort(503, description="The published retail benchmark scorecard could not be verified.")
-    return jsonify(data)
+    return benchmark_response(RESULTS / "freshretailnet-holdout-v1.json")
 
 
 def artifact_for(task):

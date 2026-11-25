@@ -29,6 +29,12 @@ def seed():
     except FileExistsError as exc:
         raise SystemExit("This demo already exists. Choose a new ECOKITCHEN_DEMO_NAME to seed fresh data.") from exc
 
+    seed_inventory(directory)
+    (directory / "menu-snapshot.json").write_bytes((DATA_DIR / "fictional-menu.json").read_bytes())
+    print(f"Created fictional inventory in instance/{directory.name}.")
+
+
+def seed_inventory(directory):
     today = date.today()
     db = InventoryDatabase(directory / "inventory.sqlite3")
     db.initialize()
@@ -56,8 +62,6 @@ def seed():
                         update_lot(session, lot, {"quantity": Decimal("8")})
     finally:
         db.engine.dispose()
-    (directory / "menu-snapshot.json").write_bytes((DATA_DIR / "fictional-menu.json").read_bytes())
-    print(f"Created fictional inventory in instance/{directory.name}.")
 
 
 def create_app():

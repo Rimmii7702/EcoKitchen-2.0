@@ -1,11 +1,13 @@
 """Inventory schema and database lifecycle."""
 
+import sqlite3
 from contextlib import contextmanager
 from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
 
 from sqlalchemy import CheckConstraint, Date, DateTime, ForeignKey, Numeric, String, Text, URL, create_engine, event, inspect
+from sqlalchemy.pool import QueuePool
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, relationship
 
 
@@ -89,9 +91,16 @@ class StockTransaction(Base):
 
 
 class InventoryDatabase:
-    def __init__(self, path: Path):
+    def __init__(self, path: Path, *, read_only=False):
         self.path = path
-        self.engine = create_engine(URL.create("sqlite", database=str(path)))
+        self.read_only = read_only
+        if read_only:
+            uri = path.resolve().as_uri() + "?mode=ro"
+            self.engine = create_engine(
+                "sqlite://", poolclass=QueuePool, creator=lambda: sqlite3.connect(uri, uri=True, check_same_thread=False),
+            )
+        else:
+            self.engine = create_engine(URL.create("sqlite", database=str(path)))
         event.listen(self.engine, "connect", self._configure_sqlite)
         event.listen(self.engine, "begin", self._begin_sqlite)
         self.writer = self.engine.execution_options(inventory_write=True)
@@ -112,11 +121,15 @@ class InventoryDatabase:
         connection.exec_driver_sql(statement)
 
     def initialize(self):
+        if self.read_only:
+            raise PermissionError("The inventory database is read-only.")
         self.path.parent.mkdir(parents=True, exist_ok=True)
         Base.metadata.create_all(self.writer)
 
     @contextmanager
     def session(self, *, write=False):
+        if write and self.read_only:
+            raise PermissionError("The inventory database is read-only.")
         if not self.path.is_file():
             raise InventoryNotInitialized
         with Session(self.writer if write else self.engine) as session, session.begin():

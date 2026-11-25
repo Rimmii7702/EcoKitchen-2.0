@@ -2,8 +2,6 @@
 
 from datetime import date, timedelta
 
-import pandas as pd
-
 from inventory_context import database
 from inventory_db import InventoryLot
 from inventory_service import active_lots, ingredient_data
@@ -56,6 +54,8 @@ def describe_inputs(items):
 
 
 def menu_inventory_frame(lots, today):
+    import pandas as pd
+
     frame = pd.DataFrame([{
         "Name": lot.ingredient.name,
         "Catagory": lot.ingredient.category,

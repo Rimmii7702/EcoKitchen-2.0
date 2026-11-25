@@ -123,6 +123,10 @@ npm test -- --maxWorkers=2
 npm run build
 ```
 
+## Read-only public demo
+
+The dedicated Render Free image serves fictional inventory, recommendations, a saved menu, and the published retail benchmark. Review the cardless setup and resource verification steps before creating a service. [Render Free deployment guide](docs/render-free-deployment.md)
+
 ## Optional AI features
 
 Gemini actions require a server-side key and an available model. Install `requirements-ai.txt` and use a local environment file based on `.env.example`. Missing keys or dependencies surface HTTP 503. Live provider behavior is unverified. The waste predictor was evaluated on synthetic data and requires a separately supplied local artifact. Restaurant demand forecasting remains unavailable with the partial fictional sales history.

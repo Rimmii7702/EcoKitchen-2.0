@@ -26,9 +26,12 @@ const workspace = [
   { id: 'forecasting', label: 'Forecasting', icon: LineChart, view: ForecastingPage },
 ]
 
-function fromHash() {
+const demoViews = new Set(['overview', 'inventory', 'alerts', 'recommendations', 'history', 'specials', 'forecasting'])
+const demoWorkspace = workspace.filter(item => demoViews.has(item.id))
+
+function fromHash(items) {
   const [id, query] = window.location.hash.slice(1).split('?')
-  return { item: workspace.find(item => item.id === id) ?? workspace[0], params: new URLSearchParams(query) }
+  return { item: items.find(item => item.id === id) ?? items[0], params: new URLSearchParams(query) }
 }
 
 function NavLinks({ items, active, onNavigate }) {
@@ -40,7 +43,7 @@ function NavLinks({ items, active, onNavigate }) {
   ))
 }
 
-function Sidebar({ active, isOpen, onClose, user }) {
+function Sidebar({ active, isOpen, onClose, user, publicDemo, items }) {
   return (
     <>
       {isOpen && <button type="button" className="nav-scrim" onClick={onClose} aria-label="Dismiss navigation" />}
@@ -52,20 +55,20 @@ function Sidebar({ active, isOpen, onClose, user }) {
         <button type="button" className="icon-button mobile-close quiet" onClick={onClose} aria-label="Close menu"><X size={21} /></button>
         <nav aria-label="Dashboard navigation">
           <p className="nav-label">Workspace</p>
-          <NavLinks items={workspace} active={active} onNavigate={onClose} />
+          <NavLinks items={items} active={active} onNavigate={onClose} />
         </nav>
         <div className="sidebar-footer">
           <p className="auth-user"><strong>{user.username}</strong> · {user.role === 'admin' ? 'Administrator' : 'Viewer'}</p>
-          <a className="nav-link legacy-link" href={apiBase + '/legacy/'} target="_blank" rel="noreferrer">
+          {!publicDemo && <a className="nav-link legacy-link" href={apiBase + '/legacy/'} target="_blank" rel="noreferrer">
             <ExternalLink size={17} />Open Flask UI
-          </a>
+          </a>}
         </div>
       </aside>
     </>
   )
 }
 
-function TopBar({ active, isOpen, toggleNav, onRefresh, user, signOut, signingOut }) {
+function TopBar({ active, isOpen, toggleNav, onRefresh, user, signOut, signingOut, publicDemo }) {
   return (
     <header className="topbar">
       <div className="topbar-start">
@@ -75,19 +78,20 @@ function TopBar({ active, isOpen, toggleNav, onRefresh, user, signOut, signingOu
           <strong>{active.label}</strong></div>
       </div>
       <div className="topbar-actions">
-        <span className="local-chip"><i />Local development</span>
+        <span className="local-chip"><i />{publicDemo ? 'Public demo' : 'Local development'}</span>
         <span className="auth-user"><strong>{user.username}</strong> · {user.role === 'admin' ? 'Administrator' : 'Viewer · read only'}</span>
         <button type="button" className="icon-button refresh-button" onClick={onRefresh}
           aria-label="Refresh dashboard" title="Refresh dashboard"><RefreshCw size={17} /></button>
-        <button type="button" className="icon-button" onClick={signOut} disabled={signingOut}
-          aria-label="Sign out" title="Sign out"><LogOut size={17} /></button>
+        {!publicDemo && <button type="button" className="icon-button" onClick={signOut} disabled={signingOut}
+          aria-label="Sign out" title="Sign out"><LogOut size={17} /></button>}
       </div>
     </header>
   )
 }
 
-export function Dashboard({ user, signOut, authError, signingOut }) {
-  const [route, setRoute] = useState(fromHash)
+export function Dashboard({ user, signOut, authError, signingOut, publicDemo = false }) {
+  const items = publicDemo ? demoWorkspace : workspace
+  const [route, setRoute] = useState(() => fromHash(items))
   const [isOpen, setIsOpen] = useState(false)
   const [revision, setRevision] = useState(0)
   const [dialog, setDialog] = useState(null)
@@ -95,18 +99,18 @@ export function Dashboard({ user, signOut, authError, signingOut }) {
   const mainRef = useRef(null)
   const active = route.item
   const View = active.view
-  const canManage = user.role === 'admin'
+  const canManage = !publicDemo && user.role === 'admin'
 
   useEffect(() => {
     const onHashChange = () => {
-      setRoute(fromHash())
+      setRoute(fromHash(items))
       setIsOpen(false)
       setDialog(null)
       mainRef.current?.focus()
     }
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
-  }, [])
+  }, [items])
 
   useEffect(() => {
     document.title = active.label + ' · EcoKitchen'
@@ -132,14 +136,15 @@ export function Dashboard({ user, signOut, authError, signingOut }) {
         event.preventDefault()
         mainRef.current?.focus()
       }}>Skip to dashboard content</a>
-      <Sidebar user={user} active={active.id} isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <Sidebar user={user} publicDemo={publicDemo} items={items} active={active.id} isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <div className="workspace">
-        <TopBar user={user} signOut={signOut} signingOut={signingOut}
+        <TopBar user={user} publicDemo={publicDemo} signOut={signOut} signingOut={signingOut}
           active={active} isOpen={isOpen} toggleNav={() => setIsOpen(value => !value)} onRefresh={refresh} />
         <main ref={mainRef} id="dashboard-main" className="main-content" tabIndex="-1">
           {authError && <p role="alert" className="auth-notice">{authError}</p>}
-          {!canManage && <p className="auth-notice">Viewer access is read only. Administrators can change stock or run analysis.</p>}
-          <View revision={revision} params={route.params} openDialog={canManage ? setDialog : undefined} canManage={canManage} />
+          {publicDemo && <p className="auth-notice">Read-only public demo with fictional inventory. Data resets after the service sleeps, restarts, or redeploys. Gemini and YOLO are unavailable here.</p>}
+          {!publicDemo && !canManage && <p className="auth-notice">Viewer access is read only. Administrators can change stock or run analysis.</p>}
+          <View revision={revision} params={route.params} openDialog={canManage ? setDialog : undefined} canManage={canManage} publicDemo={publicDemo} />
         </main>
       </div>
       {canManage && dialog && <InventoryDialog key={dialog.type + (dialog.item?.id ?? '')} spec={dialog}
